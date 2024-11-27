@@ -36,7 +36,7 @@ class Register extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          'Login ',
+                          'Register ',
                           style: TextStyle(
                               fontFamily: 'LexendFont',
                               fontSize: 18,

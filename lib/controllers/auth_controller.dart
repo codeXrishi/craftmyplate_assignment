@@ -7,6 +7,23 @@ class AuthController extends GetxController {
   // Observables for state management
   var isLoading = false.obs;
   var errorMessage = ''.obs;
+  var isSignedIn = false.obs;
+
+  var user = Rx<User?>(null);
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    user.bindStream(_auth.authStateChanges());
+
+    // Check if user is already logged in
+    if (_auth.currentUser != null) {
+      isSignedIn.value = true;
+      // Navigate to the home screen if the user is signed in
+      Future.delayed(Duration.zero, () => Get.offAll(EventScreen()));
+    }
+  }
 
   // Firebase Authentication instance
   final FirebaseAuth _auth = FirebaseAuth.instance;

@@ -65,6 +65,7 @@ class Login extends StatelessWidget {
                           child: TextFormField(
                             controller: passwordController,
                             keyboardType: TextInputType.emailAddress,
+                            obscureText: true,
                             decoration: const InputDecoration(
                               border: OutlineInputBorder(),
                               labelText: 'Enter password',
